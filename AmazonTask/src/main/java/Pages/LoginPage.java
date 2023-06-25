@@ -13,7 +13,6 @@ public class LoginPage extends PageBase {
 
 	}
 
-	
 	@FindBy(id  = "ap_email")
 	WebElement yourEmailBox;
 	

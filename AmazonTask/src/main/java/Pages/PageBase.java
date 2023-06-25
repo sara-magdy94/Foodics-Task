@@ -37,7 +37,7 @@ public class PageBase {
 
 	}
 	
-	
+
 	// click on btn
 	protected  static void Clickbtn(WebElement button) {
 		

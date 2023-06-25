@@ -24,7 +24,6 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 //import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 //import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class TestPase {
 
 	public static WebDriver driver;

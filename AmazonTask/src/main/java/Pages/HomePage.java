@@ -26,9 +26,7 @@ WebDriver driver;
 
 	public HomePage(WebDriver driver) {
 		super(driver);
-
 	}
-
 
 // All link element locator
 	@FindBy(css  = "a#nav-hamburger-menu")

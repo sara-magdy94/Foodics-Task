@@ -19,25 +19,13 @@ import Pages.ShippingDetails;
 
 @Test
 public class TestAmazonWebsite extends TestPase {
-	
 	WebDriver driver;
 	HomePage homeObject;
 	PageBase PageObject;
 	LoginPage LoginObject;
 	ShippingDetails ShippingDetailsObject;
 	
-//	Faker fakeData = new Faker();
-//	String Name = fakeData.name().fullName();
-//
-//	String MobileNum = fakeData.phoneNumber().cellPhone();
-//	String ZipCode = fakeData.address().zipCode();
-//	String password = fakeData.number().digits(8).toString();
-//	
-//
-//
-//	String city = fakeData.address().city();
-//	String State = fakeData.address().state();
-//	String governorate = fakeData.address().state();
+
 //
 //	
 //	String Country = fakeData.address().country();
@@ -57,9 +45,8 @@ String gavernorate = "Cairo";
 //@DataProvider (name = "ExcelData")
 //public Object [][] ShippingDetailsData() throws IOException {
 //	ExcelReader ER = new ExcelReader();
-//	
+//
 //	return ER.getExcelData("sheet1");
-//	
 //}
 	@Test (priority = 1, alwaysRun = true )
 	

@@ -15,7 +15,7 @@ public class ExcelReader {
 	static FileInputStream fis = null ;
 public static FileInputStream getFileInputStream() {
 	
-	
+
 	String FilePath = System.getProperty("user.dir") + "/src/test/java/data/SaraTask.xlsx";
 	File srcFile = new File(FilePath);
 	try {
@@ -26,7 +26,7 @@ public static FileInputStream getFileInputStream() {
 		System.exit(0);
 	}
 	return fis;
-	
+
 }
 
 public Object [][] getExcelData(String sheetName) throws IOException{

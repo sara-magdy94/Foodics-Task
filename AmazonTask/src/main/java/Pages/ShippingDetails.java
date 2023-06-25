@@ -18,8 +18,6 @@ public class ShippingDetails extends PageBase{
 		// TODO Auto-generated constructor stub
 	}
 
-
-
 	// NameTxtBox field locator
 	@FindBy(xpath= "//input[@id='address-ui-widgets-enterAddressFullName']")
 	WebElement NameTxtBox;
