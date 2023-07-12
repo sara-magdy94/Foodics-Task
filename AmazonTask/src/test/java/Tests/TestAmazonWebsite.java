@@ -1,6 +1,7 @@
 package Tests;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,8 +9,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 //import data.excelReader;
 
-
-
+import Data.ExcelReader;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.PageBase;
@@ -25,22 +25,32 @@ public class TestAmazonWebsite extends TestPase {
 	LoginPage LoginObject;
 	ShippingDetails ShippingDetailsObject;
 	
+	
+	@DataProvider(name="MyData")
+	public Object[][] userRegisterData() throws IOException
+	{
+		// get data from Excel Reader class 
+		ExcelReader ER = new ExcelReader();
+		return ER.getExcelData();
+	}	
 
 //
 //	
 //	String Country = fakeData.address().country();
 //	String Address1 = fakeData.address().fullAddress();
 //	String district = fakeData.address().fullAddress();
-String Email = "Saramagdydarwish@gmail.com";
-String Password = "123456S";
-String Name = "sara magdy";
-String MobileNum = "01060334453";
-String Street = "cairo- 10 omar bn khattab";
-String building = "111";
-String State = "cairo";
-String City2 = "cairo";
-String District = "cairo";
-String gavernorate = "Cairo";
+	
+//	
+//String Email = "Saramagdydarwish@gmail.com";
+//String Password = "123456S";
+//String Name = "sara magdy";
+//String MobileNum = "01060334453";
+//String Street = "cairo- 10 omar bn khattab";
+//String building = "111";
+//String State = "cairo";
+//String City2 = "cairo";
+//String District = "cairo";
+//String gavernorate = "Cairo";
 	
 //@DataProvider (name = "ExcelData")
 //public Object [][] ShippingDetailsData() throws IOException {
@@ -48,9 +58,9 @@ String gavernorate = "Cairo";
 //
 //	return ER.getExcelData("sheet1");
 //}
-	@Test (priority = 1, alwaysRun = true )
+	@Test (priority = 1, alwaysRun = true , dataProvider = "MyData")
 	
-	public void UserCanclickAllSuccessfully() throws Throwable {
+	public void UserCanclickAllSuccessfully( String Email,String Password , String Name,String MobileNum,String Street ,String building, String City2 , String District, String gavernorate ) throws Throwable {
 		
 		
 		homeObject = new HomePage(TestPase.driver);
@@ -60,7 +70,7 @@ String gavernorate = "Cairo";
 		
 		//navigate to All page 
 	homeObject.ClickAllLink();
-	homeObject.ClickOnSeeAllLink();
+	homeObject.ClickOnSeeAllLink(TestPase.driver);
 	homeObject.ClickVideoGamesLink();
 	homeObject.AllVideoGamesLink();
 	homeObject.ClickOnFreeShippingLink();
@@ -69,17 +79,17 @@ String gavernorate = "Cairo";
 	homeObject.ClickFeaturedFilter();
 	
 	homeObject.ClickHighToLowFilters();
-	homeObject.addItems(TestPase.driver);
+	homeObject.addIFirstItem(TestPase.driver);
+	homeObject.addISecondItem(TestPase.driver);
+	homeObject.addIThirdItem(TestPase.driver);
+	homeObject.addIForthItem(TestPase.driver);
 
 	homeObject.ClickOnProceedCheckout();
-	
-	
-	
-	
+
 		//fill all fields in sign up page
 		LoginObject.UserLogin(Email,Password);
 	
-		ShippingDetailsObject.UserRegisteration(Name,MobileNum, Street, building ,City2, District, gavernorate);
+		ShippingDetailsObject.UserRegisteration(driver, Name,MobileNum, Street, building ,City2, District, gavernorate);
 		ShippingDetailsObject.ScrolldownToSaveBtn_And_AssertOnOrder_total(TestPase.driver);
 
 	}

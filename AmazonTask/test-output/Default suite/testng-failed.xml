@@ -7,7 +7,8 @@
         <methods>
           <include name="startDriver"/>
           <include name="stopDriver"/>
-          <include name="UserCanclickAllSuccessfully"/>
+          <include name="screenshotOnFailure"/>
+          <include name="UserCanclickAllSuccessfully" invocation-numbers="0"/>
         </methods>
       </class> <!-- Tests.TestAmazonWebsite -->
     </classes>

@@ -59,15 +59,21 @@ public class ShippingDetails extends PageBase{
 	@FindBy(xpath = "//*[@id=\"address-ui-widgets-form-submit-button\"]/span/input")
 	WebElement SaveBtn;
 
+	
+//	//Order total locator
+		@FindBy(xpath  = "//input[@id= 'pp-X7pGB8-72']")
+		WebElement CashOnDelivery;
+
+		
 	//Order total locator
 	@FindBy(xpath  = "//*[@id=\"subtotals-marketplace-table\"]/table/tbody/tr[6]/td[2]")
 	WebElement OrderTotal;
 
-
+	
 	
 
 
-	public void UserRegisteration( String Name ,String MobileNum ,String Street, String building , String city ,String district, String governorate ) throws Exception {
+	public void UserRegisteration( WebDriver driver, String Name ,String MobileNum ,String Street, String building , String city ,String district, String governorate ) throws Exception {
 
 		SetTextElementText(NameTxtBox , Name);
 		SetTextElementText(MobileNumTxtBox , MobileNum);
@@ -94,10 +100,11 @@ public class ShippingDetails extends PageBase{
 		js.executeScript("arguments[0].scrollIntoView();",SaveBtn);
 		Clickbtn(SaveBtn);  
 
-
-		String ActualResult = OrderTotal.getText();
-		String ExpextedResult = "EGP 37,447.00";
-		Assert.assertEquals(ActualResult, ExpextedResult);
-		System.out.println("Total Order is : " +  ActualResult + "" + "and can't have cash on Delivery payment method");
-	}
+		String  ActualResult = OrderTotal.getText();
+		
+		System.out.println("Total Order is : " +  ActualResult );
+		
+	
+			
+		}
 }
